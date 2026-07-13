@@ -7,10 +7,13 @@ const { requireAuth } = require('../middleware/auth');
 
 const googleClient = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 
+// in production the frontend (Vercel) and backend (Render) are different domains,
+// so the cookie must be SameSite=None (which requires Secure) to be sent cross-site.
+// Locally they're both localhost, where SameSite=Lax + non-Secure is what works over http.
 const COOKIE_OPTIONS = {
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
-    sameSite: 'lax',
+    sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
     maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
 };
 
