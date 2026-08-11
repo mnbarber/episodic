@@ -84,6 +84,55 @@ main {
   font-size: 14px;
 }
 
+.show-card-progress {
+  margin-top: 6px;
+  font-size: 13px;
+  color: var(--text);
+}
+
+.show-row-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.show-row-arrows {
+  display: flex;
+  gap: 8px;
+}
+
+.show-row-arrows button {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  line-height: 1;
+  font-size: 18px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text-h);
+  cursor: pointer;
+}
+
+.show-row-arrows button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.show-row {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 8px;
+  margin-top: 16px;
+}
+
+.show-row .show-card {
+  flex: 0 0 160px;
+}
+
 .show-shelf-section {
   margin-bottom: 32px;
 }
